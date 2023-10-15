@@ -15,7 +15,7 @@ class FirebaseAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  FutureOr<String?> signInWithGoogle() async {
+  FutureOr<String?> signInWithGoogles() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
@@ -26,11 +26,19 @@ class FirebaseAuthService {
         idToken: googleSignInAuthentication.idToken,
       );
      final userCredential= await _auth.signInWithCredential(credential);
+      print('====================START+++++++++++++++++++');
+
       if (kDebugMode) {
         print(userCredential.user?.displayName);
         print(userCredential.user?.email);
         print(userCredential.user?.uid);
       }
+
+      print(userCredential.user?.displayName);
+      print(userCredential.user?.email);
+      print(userCredential.user?.uid);
+
+      print('====================END+++++++++++++++++++');
     } on FirebaseAuthException catch (e) {
       if (kDebugMode) {
         print(e.message);

@@ -12,4 +12,11 @@ class KString {
 
   /* All Task list*/
   static const String taskList = 'All Task';
+  static const String flutterFire = 'FlutterFire';
+  static const String authentication = 'Authentication';
+  static const String signInWithGoogle = 'Sign in with Google';
+
+
+
+
 }

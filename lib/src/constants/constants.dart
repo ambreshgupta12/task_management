@@ -24,7 +24,7 @@ class Constants {
   static const signInNavigate = '/sign-in';
   static const homeNavigate = '/home';
 
-  static const statusBarColor = SystemUiOverlayStyle(
+ /* static const statusBarColor = SystemUiOverlayStyle(
       statusBarColor: KColors.kPrimaryColor,
-      statusBarIconBrightness: Brightness.dark);
+      statusBarIconBrightness: Brightness.dark);*/
 }
