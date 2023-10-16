@@ -20,4 +20,5 @@ class KColors {
   static const Color successColor = Colors.green;
   static const deepPurple = Colors.deepPurple;
   static const black54 = Colors.black54;
+  static const black12 = Colors.black12;
 }

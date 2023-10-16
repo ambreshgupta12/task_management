@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_manager/src/constants/assets_constant.dart';
 import 'package:task_manager/src/constants/color_constants.dart';
 import 'package:task_manager/src/constants/string_constants.dart';
+import 'package:task_manager/src/controller/auth/auth_controller.dart';
 import 'package:task_manager/src/res/dimensions/dimensions.dart';
 import 'package:task_manager/src/res/theme/text_styles.dart';
-import 'package:task_manager/src/services/firebase_auth_service.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -67,38 +68,43 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _buildSignInButton() => OutlinedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(KColors.whiteColor),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(Dimens.px40),
+  Widget _buildSignInButton() => GetBuilder<AuthController>(
+  builder: (controller) {
+    return OutlinedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(KColors.whiteColor),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dimens.px40),
+          ),
+        ),
+      ),
+      onPressed: () async {
+        await controller.signInWithGoogle();
+      },
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+            Dimens.px0, Dimens.px10, Dimens.px0, Dimens.px10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              AssetsConstant.googleLogo,
+              height: Dimens.px35,
             ),
-          ),
-        ),
-        onPressed: () async {
-        await  FirebaseAuthService().signInWithGoogles();
-        },
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-              Dimens.px0, Dimens.px10, Dimens.px0, Dimens.px10),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
-                AssetsConstant.googleLogo,
-                height: Dimens.px35,
+            Padding(
+              padding: const EdgeInsets.only(left: Dimens.px10),
+              child: Text(
+                KString.signInWithGoogle,
+                style: osTextStyle18SemiBold.copyWith(color: KColors.black54),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: Dimens.px10),
-                child: Text(
-                  KString.signInWithGoogle,
-                  style: osTextStyle18SemiBold.copyWith(color: KColors.black54),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
-      );
+      ),
+    );
+  }
+
+  );
 }

@@ -22,6 +22,11 @@ const TextStyle osTextStyle10Medium = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: Dimens.px10);
 
+const TextStyle osTextStyle16Medium = TextStyle(
+    fontFamily: KString.openSansFont,
+    fontWeight: FontWeight.w500,
+    fontSize: Dimens.px16);
+
 const TextStyle osTextStyle12Bold = TextStyle(
     fontFamily: KString.openSansFont,
     fontWeight: FontWeight.w700,
@@ -60,10 +65,7 @@ const TextStyle osTextStyle16Regular = TextStyle(
     fontFamily: KString.openSansFont,
     fontWeight: FontWeight.w400,
     fontSize: Dimens.px16);
-const TextStyle osTextStyle16Medium = TextStyle(
-    fontFamily: KString.openSansFont,
-    fontWeight: FontWeight.w500,
-    fontSize: Dimens.px16);
+
 const TextStyle osTextStyle12Regular = TextStyle(
     fontFamily: KString.openSansFont,
     fontWeight: FontWeight.w400,
